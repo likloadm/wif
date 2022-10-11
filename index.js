@@ -61,5 +61,6 @@ module.exports = {
   decode: decode,
   decodeRaw: decodeRaw,
   encode: encode,
-  encodeRaw: encodeRaw
+  encodeRaw: encodeRaw,
+  bs58check: bs58check
 }
