@@ -28,7 +28,7 @@ function decodeRaw (buffer, version) {
 }
 
 function encodeRaw (version, privateKey, compressed) {
-  var result = Buffer.concat([version, privateKey])
+  var result = Buffer.concat([Buffer.from(version), privateKey])
   return result
 }
 
