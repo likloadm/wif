@@ -29,7 +29,7 @@ function decodeRaw (buffer, version) {
 
 function encodeRaw (version, privateKey, compressed) {
 
-  var result = Buffer.alloc(5953)
+  var result = Buffer.alloc(5954)
   result.writeUInt8(version, 0)
   privateKey.copy(result, 1)
   return result
