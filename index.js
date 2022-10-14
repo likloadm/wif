@@ -30,7 +30,7 @@ function decodeRaw (buffer, version) {
 function encodeRaw (version, privateKey, compressed) {
   var buf = new Buffer(1);
   buf.writeUInt8(version, 0);
-  var result = Buffer.concat([buf, privateKey])
+  var result = Buffer.concat([buf, Buffer.from(privateKey, "hex")])
   return result
 }
 
