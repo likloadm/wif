@@ -5,24 +5,15 @@ function decodeRaw (buffer, version) {
   // check version only if defined
   if (version !== undefined && buffer[0] !== version) throw new Error('Invalid network version')
 
-  // uncompressed
-  if (buffer.length === 33) {
-    return {
-      version: buffer[0],
-      privateKey: buffer.slice(1, 33),
-      compressed: false
-    }
-  }
-
   // invalid length
-  if (buffer.length !== 34) throw new Error('Invalid WIF length')
+  if (buffer.length !== 5954) throw new Error('Invalid WIF length')
 
   // invalid compression flag
-  if (buffer[33] !== 0x01) throw new Error('Invalid compression flag')
+  if (buffer[4001] !== 0x01) throw new Error('Invalid compression flag')
 
   return {
     version: buffer[0],
-    privateKey: buffer.slice(1, 33),
+    privateKey: buffer.slice(1, 4001),
     compressed: true
   }
 }
